@@ -20,6 +20,7 @@ router.get('/sobre', institucionalController.sobre);
 // rota para pets que retorna o método index da petsController
 router.get('/pets', petsController.index);
 router.get('/pets/:nome', petsController.show);
+// router.get('servicos', servicosController.index);
 router.get('/servicos/:servico', servicosController.show);
 
 module.exports = router;
