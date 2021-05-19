@@ -11,11 +11,15 @@ const institucionalController = require('../controllers/institucionalController'
 
 //rotas para páginas institucionais
 router.get('/', institucionalController.index);
+router.get('/cadastro', institucionalController.cadastro);
+router.get('/contato', institucionalController.contato);
+router.get('/login', institucionalController.login);
+router.get('/servicos', institucionalController.servicos);
+router.get('/sobre', institucionalController.sobre);
 
 // rota para pets que retorna o método index da petsController
 router.get('/pets', petsController.index);
 router.get('/pets/:nome', petsController.show);
-router.get('/servicos', servicosController.index);
 router.get('/servicos/:servico', servicosController.show);
 
 module.exports = router;
