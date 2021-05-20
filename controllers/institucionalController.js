@@ -5,19 +5,19 @@ const institucionalController = {
         return response.render('index', {titulo: 'Home' });
 },
     cadastro: (request, response) => {
-        return response.render('cadastro');
+        return response.render('cadastro', { titulo: 'Cadastro' });
     },
     contato: (request, response) => {
-        return response.render('contato');
+        return response.render('contato', { titulo: 'Contato'});
     },
     login: (request, response) => {
-        return response.render('login');
+        return response.render('login', { titulo: 'Login' });
     },
     servicos: (request, response) => {
-        return response.render('servicos');
+        return response.render('servicos', {titulo: 'Serviços' });
     },
     sobre: (request, response) => {
-        return response.render('sobre');
+        return response.render('sobre', { titulo: 'Sobre' });
     }
 }
 //     show: (request, response) => {
