@@ -2,7 +2,7 @@ const { response } = require("express");
 
 const institucionalController = {
     index: (request, response) => {
-        return response.render('index');
+        return response.render('index', {titulo: 'Home' });
 },
     cadastro: (request, response) => {
         return response.render('cadastro');
