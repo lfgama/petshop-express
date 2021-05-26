@@ -1,6 +1,6 @@
 const servicosController = {
     index: (request, response) => {
-        return response.send(`Exibindo lista de serviços`)
+        return response.render('adminServicos', {titulo: 'Serviços', servicos: [] });
     },
     show: (request, response) => {
     const {servico} = request.params;
