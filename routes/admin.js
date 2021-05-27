@@ -10,6 +10,7 @@ router.get('/', (request, response) => {
 
 // http://localhost:3000/admin/servicos
 router.get('/servicos', servicosController.index);
-
+router.get('/servicos/cadastro', servicosController.cadastro);
+router.post('/servicos/cadastro', servicosController.salvar);
 
 module.exports = router;
