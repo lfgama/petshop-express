@@ -1,4 +1,15 @@
-const { response } = require("express");
+/** módulo instalado para manipulação de arquivos */
+const fs = require('fs');
+/** modulo nativo para manipulação de arquivos */
+const path = require('path');
+
+/** caminho do arquivo json */
+const servicosPath = path.join('servicos.json');
+/** lê conteúdo do arquivo json */
+let servicos = fs.readFileSync(servicosPath, { encoding: 'utf-8' });
+/** converte JSON para array */
+servicos = JSON.parse(servicos);
+
 
 const institucionalController = {
     index: (request, response) => {
@@ -14,10 +25,10 @@ const institucionalController = {
         return response.render('login', { titulo: 'Login' });
     },
     servicos: (request, response) => {
-        return response.render('servicos', {titulo: 'Serviços' });
+        return response.render('servicos', {titulo: 'Serviços', servicos });
     },
     sobre: (request, response) => {
-        return response.render('sobre', { titulo: 'Sobre' });
+        return response.render('sobre', { titulo: 'Sobre'});
     }
 }
 //     show: (request, response) => {
