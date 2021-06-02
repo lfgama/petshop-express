@@ -25,7 +25,7 @@ const servicosController = {
         let { nome, descricao, preco } = request.body;
         
         /** pegando o nome do arquivo */
-        let ilustracao = request.file.path;
+        let ilustracao = request.file.filename;
 
         // adiciona o novo serviço no array
         servicos.push({ id: uuid(), nome, descricao, preco, ilustracao });
@@ -37,9 +37,17 @@ const servicosController = {
 
         return response.redirect('/admin/servicos');
     },
+    editar: (request, response) => {
+        /** pegando parametro id da url */
+        let {id} = request.params;
+        /** busca servico pelo id */
+        let servicoEncontrado = servicos.find(servico => servico.id == id);
+        /** rendereiza view e manda titulo e obj do serviço */
+        return response.render('servicosEditar', {titulo: 'Editar serviço', servico: servicoEncontrado });
+    },
     show: (request, response) => {
     const {servico} = request.params;
     return response.send(`Exibindo detalhes do serviço ${servico}`)
-}
+    }
 }
 module.exports = servicosController

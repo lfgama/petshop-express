@@ -28,5 +28,6 @@ router.get('/', (request, response) => {
 router.get('/servicos', servicosController.index);
 router.get('/servicos/cadastro', servicosController.cadastro);
 router.post('/servicos/cadastro', upload.single('ilustracao'), servicosController.salvar);
+router.get('/servicos/editar/:id', servicosController.editar);
 
 module.exports = router;
