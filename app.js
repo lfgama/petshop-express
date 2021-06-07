@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 /** importação do módulo */
 const methodOverride = require('method-override')
+const middlewareLog = require('./middlewares/log');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -24,6 +25,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
+/** utilizando middlewares globais */
+app.use(middlewareLog);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
